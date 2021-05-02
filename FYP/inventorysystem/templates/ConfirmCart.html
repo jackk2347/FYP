@@ -1,0 +1,54 @@
+<!-- Author By Koo Chung Hing -->
+<!-- Date: 1/4/2021 -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Confirm Customer Cart</title>
+  <link rel="stylesheet" type="text/css"
+    href="{% static 'css/Store.css'%}">
+    {% include 'navbar.html' %}
+</head>
+<body>
+<h2>Confirm Cart</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Stock Qty</th>
+            <th>Total Qty</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            {% if d %}
+            {% for i in d %}
+            <td>{{i.productid}}</td>
+            <td>{{i.productname}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.Qty}}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+        <tbody>
+    </table>
+</div>
+
+      <center><form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" name="Purchase" value="Purchase"/>
+        </form>
+      </center>
+
+
+{% include 'footer.html' %}
+</body>
+</html>

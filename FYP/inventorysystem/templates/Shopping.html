@@ -1,0 +1,65 @@
+<!-- Author By Koo Chung Hing -->
+<!-- Date: 1/4/2021 -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Customer Cart</title>
+  <link rel="stylesheet" type="text/css"
+    href="{% static 'css/Store.css'%}">
+    {% include 'navbar.html' %}
+</head>
+<body>
+<h2>Customer Cart</h2>
+ <form action ="" method="POST">
+            {% csrf_token %}
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Stock Qty</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+             {% if d %}
+            {% for i in d %}
+            <td>{{i.ProductID}}</td>
+            <td>{{i.Name}}</td>
+        <td>{{i.Price}}</td>
+            <td>
+                <input type="number" name="{{i.ProductID}}" id="qty">
+
+
+            </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+        <tbody>
+    </table>
+</div>
+
+        <input type="submit" name="delete" value="delete"/>
+        <input type="submit" name="Purchase" value="Purchase"/>
+        </form>
+
+
+<center><button class="button2" onclick="getLink()">Add Product</button></center>
+
+<script type="text/javascript">
+        function getLink() {
+            window.open("http://127.0.0.1:8000/AddPurchase/","_self");
+        }
+        </script>
+
+{% include 'footer.html' %}
+</body>
+</html>

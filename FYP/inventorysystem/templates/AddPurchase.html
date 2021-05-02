@@ -1,0 +1,32 @@
+<!-- Author By Koo Chung Hing -->
+<!-- Date: 1/4/2021 -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link rel="stylesheet" type="text/css"
+    href="{% static 'css/Form.css'%}">
+
+</head>
+<body>
+<div class="container">
+    <center><h1>Add Product</h1></center>
+<form action="../AddPurchase/" method="POST">
+    {% csrf_token %}
+     <div class="row">
+      <div class="col-25">
+        <label for="ProductID">Product ID:</label>
+          </div>
+         <div class="col-75">
+          <input type="text" name="ProductID" id="ProductID" ><br>
+      </div>
+         </div>
+    <div class="row">
+    <input type="submit" value="Add Product">
+    </div>
+</form>
+</div>
+</body>
+</html>

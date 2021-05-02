@@ -1,0 +1,32 @@
+<!-- Author By Koo Chung Hing -->
+<!-- Date: 1/4/2021 -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Userblanace</title>
+    <link rel="stylesheet" type="text/css"
+    href="{% static 'css/Form.css'%}">
+
+</head>
+<body>
+<div class="container">
+    <center><h1>Checking Customer Balance</h1></center>
+<form action="../userbalance/" method="POST">
+    {% csrf_token %}
+     <div class="row">
+      <div class="col-25">
+        <label for="Custemail">Customer Email:</label>
+          </div>
+         <div class="col-75">
+          <input type="text" name="Custemail" id="Custemail" ><br>
+      </div>
+         </div>
+    <div class="row">
+    <input type="submit" value="Checking">
+    </div>
+</form>
+</div>
+</body>
+</html>

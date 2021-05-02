@@ -1,0 +1,51 @@
+<!-- Author By Koo Chung Hing -->
+<!-- Date: 1/4/2021 -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System User Added</title>
+    <link rel="stylesheet" type="text/css"
+    href="{% static 'css/Form.css'%}">
+</head>
+<body>
+<div class="container">
+    <center><h1>User Added</h1></center>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="row">
+      <div class="col-25">
+           <label for="Username">Username:</label>
+          </div>
+            <div class="col-75">
+           <input type="Username" id="Username" name="Username">
+      </div>
+            </div>
+         <div class="row">
+      <div class="col-25">
+           <label for="Password">Password:</label>
+          </div>
+             <div class="col-75">
+           <input type="Password" id="Password" name="Password">
+      </div>
+             </div>
+        <div class="row">
+      <div class="col-25">
+           <label for="UserLevel">UserLevel:</label>
+      </div>
+            <div class="col-75">
+           <select name="UserLevel" id="UserLevel">
+               <option value="0">Staff</option>
+               <option value="1">Manager</option>
+               <option value="2">Admin</option>
+           </select>
+      </div>
+             </div>
+        <div class="row">
+            <input type="submit" value="Create">
+             </div>
+          </form>
+</div>
+</body>
+</html>

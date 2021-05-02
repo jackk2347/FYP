@@ -1,0 +1,45 @@
+<!-- Author By Koo Chung Hing -->
+<!-- Date: 1/4/2021 -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Product</title>
+  <link rel="stylesheet" type="text/css"
+    href="{% static 'css/Store.css'%}">
+    {% include 'navbar.html' %}
+</head>
+<body>
+<h2>Product</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Stock ID</th>
+            <th>Stock Name</th>
+            <th>Stock Price</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+          {% if d %}
+            {% for i in d %}
+            <td>{{i.StockID}}</td>
+            <td>{{i.Name}}</td>
+            <td>{{i.Price}}</td>
+            <td><a href="../EditProduct?id={{i.StockID}}">Edit</a></td>
+        </tr>
+        {% endfor %}
+    {% endif %}
+        <tbody>
+    </table>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

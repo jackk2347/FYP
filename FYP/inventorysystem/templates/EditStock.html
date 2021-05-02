@@ -1,0 +1,53 @@
+<!-- Author By Koo Chung Hing -->
+<!-- Date: 1/4/2021 -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EditStock</title>
+    <link rel="stylesheet" type="text/css"
+    href="{% static 'css/Form.css'%}">
+</head>
+<body>
+
+<div class="container">
+    <center><h1>Update Stock Qty</h1></center>
+  <form action="../EditStock/" method="POST">
+      {% csrf_token %}
+    <div class="row">
+      <div class="col-25">
+        <label for="StockID">StockID:</label>
+      </div>
+      <div class="col-75">
+          {{StockID}}
+          <input type="hidden" id="StockID" name="StockID" value="{{StockID}}" id="StockID">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+       <label for="StockName">StockName:</label>
+      </div>
+      <div class="col-75">
+         {{Name}}
+          <input type="hidden" id="StockName" name="StockName" value="{{Name}}">
+      </div>
+    </div>
+      <div class="row">
+      <div class="col-25">
+       <label for="StockName">Qty:</label>
+      </div>
+      <div class="col-75">
+          <input type="number" name="Qty" id="Qty" value="{{Qty}}">
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+
+
+
+</body>
+</html>

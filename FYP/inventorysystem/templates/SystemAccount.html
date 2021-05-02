@@ -1,0 +1,55 @@
+<!-- Author By Koo Chung Hing -->
+<!-- Date: 1/4/2021 -->
+<!DOCTYPE html>
+{% if userlevel > 1 %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>System Account</title>
+     <link rel="stylesheet" type="text/css"
+    href="{% static 'css/Store.css'%}">
+    {% include 'navbar.html' %}
+</head>
+<body>
+<h2>System User</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>User Account</th>
+            <th>Password</th>
+            <th>User Level</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          {% if d %}
+            {% for i in d %}
+            <td>{{i.Username}}</td>
+            <td>{{i.Password}}</td>
+            <td>{% if i.UserLevel == 2 %}<p style="color:red">Admin</p>{%endif%}
+                {% if i.UserLevel == 1 %}<p style="color:blue">Manager</p>{%endif%}
+            {% if i.UserLevel == 0 %}<p style="color:green">Staff</p>{%endif%}</td>
+        </tr>
+        {% endfor %}
+    {% endif %}
+        <tbody>
+    </table>
+</div>
+<center><button class="button2" onclick="getLink()">Add User</button></center>
+<script type="text/javascript">
+        function getLink() {
+            window.open("http://127.0.0.1:8000/AddSystemAccount/","_self");
+        }
+    </script>
+{% include 'footer.html' %}
+{% endif %}
+{% if userlevel < 2 %}
+Sorry,You do not have permission on this page.
+{% endif %}
+</body>
+</html>

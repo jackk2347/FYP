@@ -1,0 +1,22 @@
+<!-- Author By Koo Chung Hing -->
+<!-- Date: 1/4/2021 -->
+
+<!DOCTYPE html>
+{% if userlevel >= 1 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    {% include 'navbar.html' %}
+</head>
+<body>
+
+{% autoescape off %}
+  {{ plot_div }}
+  {% endautoescape %}
+{% endif %}
+{% if userlevel < 1 %}
+Sorry,You do not have permission on this page.
+{% endif %}
+</body>
+</html>

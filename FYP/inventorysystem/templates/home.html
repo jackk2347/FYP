@@ -1,0 +1,20 @@
+<!-- Author By Koo Chung Hing -->
+<!-- Date: 1/4/2021 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    {% include 'navbar.html' with userlevel=userlevel %}
+</head>
+<body>
+{% csrf_token %}
+<center><h5><p>This is Inventory System . Welcome,
+    {% if userlevel == 2 %}<p style="color:red">Admin</p>{%endif%}
+    {% if userlevel == 1 %}<p style="color:blue">Manager</p>{%endif%}
+    {% if userlevel == 0 %}<p style="color:green">Staff</p>{%endif%}
+    </p>
+</h5></center>
+{% include 'footer.html' %}
+</body>
+</html>
