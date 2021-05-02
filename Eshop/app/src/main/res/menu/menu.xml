@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Main Page"
+        android:id="@+id/mainpage"
+        android:orderInCategory="100"
+        />
+    <item android:title="View Profile"
+        android:id="@+id/profle"
+        android:orderInCategory="100"
+        />
+
+    <item android:title="QR Payment/Increase balance"
+        android:id="@+id/qrpayment"
+        android:orderInCategory="100"
+        />
+    <item android:title="Logout"
+        android:id="@+id/logout"
+        android:orderInCategory="100"
+        />
+
+</menu>

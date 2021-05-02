@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/UserProfile"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/user"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/refersh"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/refersh"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="130dp"/>
+
+
+
+
+    <Button
+        android:id="@+id/ChangeProfile"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:text="Edit Icon"
+        android:textSize="5sp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="150dp"/>
+
+    <TextView
+        android:id="@+id/NameTitle"
+        android:layout_marginTop="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/UserProfile"
+        android:layout_marginLeft="10dp"
+        android:text="User Name: "
+        android:textColor="#FF0000"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_marginTop="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/NameTitle"
+        android:textSize="10sp"
+        android:textColor="#0000FF"
+         />
+
+    <TextView
+        android:id="@+id/BalanceTitile"
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/UserProfile"
+        android:layout_marginLeft="10dp"
+        android:text="Balance : "
+        android:textColor="#FF0000"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/Balance"
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/BalanceTitile"
+        android:textSize="10sp"
+        android:textColor="#0000FF"
+         />
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/profile"
+        android:layout_below="@id/ChangeProfile"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        />
+
+    <ImageView
+        android:id="@+id/purchase"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/purchase"
+        android:layout_toRightOf="@+id/profile"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@id/ChangeProfile"
+        />
+
+    <ImageView
+        android:id="@+id/qrcode"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/qrcode"
+        android:layout_toRightOf="@+id/purchase"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@id/ChangeProfile"
+        android:layout_marginTop="20dp"
+        />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/ad1"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/profile"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="90dp"
+        android:src="@drawable/ad1"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/ad2"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/ad1"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="90dp"
+        android:src="@drawable/ad2"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/ad3"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/ad2"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="90dp"
+        android:src="@drawable/ad3"/>
+
+
+</RelativeLayout>

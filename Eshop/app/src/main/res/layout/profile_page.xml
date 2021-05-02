@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:id="@+id/EmailTitle"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textColor="#FF0000"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/Email"
+        android:textSize="20sp"
+        android:layout_below="@+id/EmailTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#0000FF"
+        />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/Fuallnametitle"
+        android:textSize="20sp"
+        android:layout_below="@+id/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Name:"
+        android:textColor="#FF0000"
+        />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/Fullname"
+        android:textSize="20sp"
+        android:layout_below="@+id/Fuallnametitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#0000FF"
+        />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/Birthdaytitle"
+        android:textSize="20sp"
+        android:layout_below="@+id/Fullname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Birthday:"
+        android:textColor="#FF0000"
+        />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/Birthday"
+        android:textSize="20sp"
+        android:layout_below="@+id/Birthdaytitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#0000FF"
+        />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/Sextitle"
+        android:textSize="20sp"
+        android:layout_below="@+id/Birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sex:"
+        android:textColor="#FF0000"
+        />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/Sex"
+        android:textSize="20sp"
+        android:layout_below="@+id/Sextitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#0000FF"
+        />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/acbalancetitle"
+        android:textSize="20sp"
+        android:layout_below="@+id/Sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Balance :"
+        android:textColor="#FF0000"
+        />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/acbalance"
+        android:textSize="20sp"
+        android:layout_below="@+id/acbalancetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#0000FF"
+        />
+
+
+</RelativeLayout>
