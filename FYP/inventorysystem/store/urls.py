@@ -25,7 +25,6 @@ urlpatterns = [
     path('Purchase/', views.Purchase,name="Purchase"),
     path('AddCart/', views.AddCart,name="AddCart"),
     path('ConfirmCart/', views.ConfirmCart,name="ConfirmCart"),
-    path('CustomerPayment/', views.CustomerPayment, name="CustomerPayment"),
 ]
 
 

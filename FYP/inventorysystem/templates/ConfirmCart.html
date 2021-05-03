@@ -35,24 +35,18 @@
             <td>{{i.productname}}</td>
             <td>{{i.price}}</td>
             <td>{{i.Qty}}</td>
-            <td>{{i.totalprice}}</td>
         </tr>
         {% endfor %}
-         {% endif %}
+        {% endif %}
         <tbody>
     </table>
 </div>
 
-      <form action="" method="POST">
+      <center><form action="" method="POST">
         {% csrf_token %}
-          <label>
-              Total Price : {{finaltotalprice}}
-          </label>
-          </br>Customer Email:<input type="hidden" name="finaltotalprice" id="finaltotalprice" value="{{finaltotalprice}}">
-          <input type="text" name="Custemail" id="Custemail" >
-        <input type="submit" name="Purchase" value="Purchase">
+        <input type="submit" name="Purchase" value="Purchase"/>
         </form>
-
+      </center>
 
 
 {% include 'footer.html' %}
