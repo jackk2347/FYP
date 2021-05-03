@@ -139,6 +139,7 @@ def balance(request):
     else:
         return render(request, 'Userblanace.html')
 
+
 def SystemAccount(request):
     # get the firebase realtime directory and use the pandas to change the database and make it have columns
     dftable = pd.DataFrame.from_dict(db.child("SystemUser").get().val(), orient="index").reset_index()
@@ -227,8 +228,8 @@ def Purchase(request):
                         ProductID = (dftable.loc[dftable['StockID'] == item]['StockID'].values[0])
                         UnitPrice = (dftable.loc[dftable['StockID'] == item]['Price'].values[0])
                         df = df.append({'productid':ProductID,'productname':ProductName,'price':UnitPrice,'Qty':Qty,'totalprice':Totalprice},ignore_index=True)
-            request.session['Cart'] = df
-            return  HttpResponseRedirect('/ConfirmCart/')
+            request.session['Cart'] = df.to_dict()
+            return HttpResponseRedirect('/ConfirmCart/')
         return HttpResponseRedirect('/Purchase/')
     else:
          # get the firebase realtime directory and use the pandas to change the database and make it have columns
@@ -271,9 +272,49 @@ def AddCart(request):
         return render(request, 'ConProductinf.html', dict(Stocks))
 
 def ConfirmCart(request):
-        context = {'d': request.session['Cart']}
+    if request.method == 'POST':
+        Email = request.POST.get("Custemail", "")
+        finaltotalprice = request.POST.get("finaltotalprice", "")
+        url = "../CustomerPayment/?email=" + Email+"&finaltotalprice="+finaltotalprice
+        return HttpResponseRedirect(url)
+    else:
+        df = pd.DataFrame(request.session['Cart'])
+        finaltotalprice = df['totalprice'].sum()
+        json_records = df.reset_index().to_json(orient='records')
+        data = []
+        data = json.loads(json_records)
+        context = {'d': data}
         context['userlevel'] = request.session['userlevel']
+        context['finaltotalprice'] = finaltotalprice
         return render(request, "ConfirmCart.html",context)
+
+def CustomerPayment(request):
+    if request.method == 'POST':
+        Userpay = request.POST.get("hiddenUserpay","")
+        HideBalance = request.POST.get("hiddenbalance","")
+        Email = request.POST.get("hiddenemail","")
+        # find the value key
+        Customerdicts = db.child("Users").order_by_child("email").equal_to(Email).get()
+        # user the key to find the item and update
+        for val in Customerdicts.each():
+            db.child("Users").child(val.key()).update({'balance': (int(HideBalance)-int(Userpay))})
+        Cart = db.child("SystemUser").order_by_child("Username").equal_to(request.session['username']).get()
+        for val in Cart.each():
+            db.child("SystemUser").child(val.key()).child('Cart').remove()
+        return HttpResponseRedirect('/Purchase/')
+    else:
+        Email = request.GET.get('email')
+        totalprice = request.GET.get('finaltotalprice')
+        print(totalprice)
+        # get the firebase realtime directory and use the pandas to change the database and make it have columns
+        Customerdict = db.child("Users").order_by_child("email").equal_to(Email).get().val()
+        # Customer directory always have one
+        for val in Customerdict.values():
+            Customers = val
+        Customers = dict(Customers)
+        Customers['totalprice'] = totalprice
+        return render(request, "CustomerPayment.html",dict(Customers))
+
 
 
 
