@@ -36,10 +36,10 @@
             <td>{{i.StockID}}</td>
             <td>{{i.Name}}</td>
             <td>{{i.Qty}}</td>
-            <td>{% if i.Qty > 75 %}<p style="color:blue">Maximum Level</p>{%endif%}
-                {% if i.Qty > 50 and i.Qty <= 75 %}<p style="color:green">Average Stock Level</p>{%endif%}
-                {% if i.Qty > 25 and i.Qty <= 50 %}<p style="color:purple">Danger Level{%endif%}
-                {% if i.Qty > 0 and i.Qty <= 25 %}<p style="color:red">Minimum Level</p>{%endif%}
+            <td>{% if i.Qty >= 75 %}<p style="color:blue">Maximum Level</p>{%endif%}
+                {% if i.Qty >= 50 and i.Qty < 75 %}<p style="color:green">Average Stock Level</p>{%endif%}
+                {% if i.Qty >= 25 and i.Qty < 50 %}<p style="color:purple">Danger Level{%endif%}
+                {% if i.Qty >= 0 and i.Qty < 25 %}<p style="color:red">Minimum Level</p>{%endif%}
             </td>
             {% if userlevel >= 1 %}
             <td><a href="../EditStock?id={{i.StockID}}">Edit</a></td>

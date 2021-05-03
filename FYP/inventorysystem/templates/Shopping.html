@@ -34,10 +34,9 @@
             {% for i in d %}
             <td>{{i.ProductID}}</td>
             <td>{{i.Name}}</td>
-        <td>{{i.Price}}</td>
+            <td>{{i.Price}}</td>
             <td>
-                <input type="number" name="{{i.ProductID}}" id="qty">
-
+                <input type="number" name="{{i.ProductID}}" id="qty" min="1">
 
             </td>
         </tr>
